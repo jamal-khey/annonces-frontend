@@ -1,0 +1,6 @@
+{
+  "Index": {
+    "title": "بداية",
+    "description": "تستخدم هذه الصفحة رسائل من <code> ./messages/index/{locale}.json </code> و <code> ./messages/shared/{locale}.json </code>. لا يتم تحميل الرسائل من صفحة'حول' والإعدادات المحلية الأخرى. "
+  }
+}
