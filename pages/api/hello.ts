@@ -5,9 +5,10 @@ type Data = {
   name: string
 }
 
-export default function handler(
+export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse<Data>
 ) {
-  res.status(200).json({ name: 'John Doe' })
+  const resReq = await fetch("http://127.0.0.1:8000/");
+  res.status(200).json(await resReq.json())
 }

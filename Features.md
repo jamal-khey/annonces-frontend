@@ -11,4 +11,4 @@
 
 - avis client sur chaque boutiques / articles
 
-- bar de recherque , par lieux , 
+- bare de recherche , par lieux , couleurs , taille
