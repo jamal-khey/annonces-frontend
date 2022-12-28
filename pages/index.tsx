@@ -33,7 +33,7 @@ export default function Home() {
 
       <Products></Products>
 
-      <button onClick={setProduct}>set product</button>
+      <button onClick={getProduct}>set product</button>
       <Elem></Elem>
         
       </main>
@@ -42,7 +42,10 @@ export default function Home() {
 }
 
 const Products = () => {
-  const { data, error } = useSWR('/api/hello', fetcher)
+  const limit = 6
+  const page = 1
+  const params = `/?limit=${limit}&page=${page}`
+  const { data, error } = useSWR('/api/product'+params, fetcher)
 
   
   if (error) return <div>Failed to load</div>
@@ -152,6 +155,6 @@ export function getStaticProps({ locale }: any) {
   }
 }
 
-function setProduct(): void {
+function getProduct(): void {
   console.log('clicked')
 }
