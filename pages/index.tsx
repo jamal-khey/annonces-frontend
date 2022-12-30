@@ -2,18 +2,34 @@ import Head from 'next/head'
 import Image from 'next/image'
 import { useTranslations } from 'next-intl'
 import { useRouter } from 'next/router'
-import Code from '../components/Code'
+import Code from '../src/components/Code'
 import styles from '../styles/Home.module.css'
-import PageLayout from '../components/PageLayout'
+import PageLayout from '../src/components/PageLayout'
 import useSWR from 'swr'
-import { AddProductForm } from '../components/AddProduct'
+import { AddProductForm } from '../src/components/AddProduct'
+import AdsItem from '../src/components/frontend/ads/ads-item'
 
 const fetcher = (url: any) => fetch(url).then((res) => res.text())
 
 export default function Home() {
   const t = useTranslations('Index')
   const { locale } = useRouter()
-  
+  const item1 = {
+    status: {
+      isFeatured: true
+    },
+    adGallery: [],
+    category: "categorie",
+    location: "location",
+    loding: false,
+    priceDetails: {
+      currency: "EUR",
+      price: 999
+    }
+    // adGallery[0].url
+  }
+
+ 
   return (
     <>
       <Head>
@@ -30,6 +46,7 @@ export default function Home() {
             code: (children) => <Code>{children}</Code>,
           })}
         </p>
+        <AdsItem item={item1}></AdsItem>
       </PageLayout>
       <AddProductForm></AddProductForm>
       {/* <Products></Products> */}
