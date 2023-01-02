@@ -1,4 +1,4 @@
-import _ from 'lodash'
+// import _ from 'lodash'
 import { useRouter } from 'next/router'
 import React from 'react'
 import { useForm } from 'react-hook-form'
@@ -57,19 +57,19 @@ const AdsFilter = ({ setCurrentPage }) => {
         adWarranty: watch('adsWarrenty'),
         sortby: watch('adsFilters'),
       }
-      const filtered = _.pickBy(
-        values,
-        (value) =>
-          value !== '' &&
-          value !== null &&
-          value !== undefined &&
-          value.length > 0
-      )
+      // const filtered = _.pickBy(
+      //   values,
+      //   (value) =>
+      //     value !== '' &&
+      //     value !== null &&
+      //     value !== undefined &&
+      //     value.length > 0
+      // )
 
-      router.push({
-        pathname: '/all-ads',
-        query: filtered,
-      })
+      // router.push({
+      //   pathname: '/all-ads',
+      //   query: filtered,
+      // })
     }
   }, [category])
 
@@ -84,19 +84,19 @@ const AdsFilter = ({ setCurrentPage }) => {
         adWarranty: watch('adsWarrenty'),
         sortby: watch('adsFilters'),
       }
-      const filtered = _.pickBy(
-        values,
-        (value) =>
-          value !== '' &&
-          value !== null &&
-          value !== undefined &&
-          value.length > 0
-      )
+      // const filtered = _.pickBy(
+      //   values,
+      //   (value) =>
+      //     value !== '' &&
+      //     value !== null &&
+      //     value !== undefined &&
+      //     value.length > 0
+      // )
 
-      router.push({
-        pathname: '/all-ads',
-        query: filtered,
-      })
+      // router.push({
+      //   pathname: '/all-ads',
+      //   query: filtered,
+      // })
     }
   }, [adsType])
 
@@ -115,19 +115,19 @@ const AdsFilter = ({ setCurrentPage }) => {
         adWarranty: watch('adsWarrenty'),
         sortby: watch('adsFilters'),
       }
-      const filtered = _.pickBy(
-        values,
-        (value) =>
-          value !== '' &&
-          value !== null &&
-          value !== undefined &&
-          value.length > 0
-      )
+      // const filtered = _.pickBy(
+      //   values,
+      //   (value) =>
+      //     value !== '' &&
+      //     value !== null &&
+      //     value !== undefined &&
+      //     value.length > 0
+      // )
 
-      router.push({
-        pathname: '/all-ads',
-        query: filtered,
-      })
+      // router.push({
+      //   pathname: '/all-ads',
+      //   query: filtered,
+      // })
     }
   }, [adsWarrenty])
 
@@ -146,19 +146,19 @@ const AdsFilter = ({ setCurrentPage }) => {
         adWarranty: watch('adsWarrenty'),
         sortby: watch('adsFilters'),
       }
-      const filtered = _.pickBy(
-        values,
-        (value) =>
-          value !== '' &&
-          value !== null &&
-          value !== undefined &&
-          value.length > 0
-      )
+      // const filtered = _.pickBy(
+      //   values,
+      //   (value) =>
+      //     value !== '' &&
+      //     value !== null &&
+      //     value !== undefined &&
+      //     value.length > 0
+      // )
 
-      router.push({
-        pathname: '/all-ads',
-        query: filtered,
-      })
+      // router.push({
+      //   pathname: '/all-ads',
+      //   query: filtered,
+      // })
     }
   }, [adsFilters])
 

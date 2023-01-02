@@ -1,5 +1,5 @@
 import React from 'react'
-import _ from 'lodash'
+// import _ from 'lodash'
 import { useRouter } from 'next/router'
 import { useForm } from 'react-hook-form'
 import { ThemeContext } from '../../../context/ThemeContext'
@@ -48,15 +48,15 @@ const Search = () => {
       sortby: router.query.sortby,
     }
 
-    const filteredData = _.pickBy(
-      values,
-      (value) => value !== '' && value !== null && value !== undefined
-    )
+    // const filteredData = _.pickBy(
+    //   values,
+    //   (value) => value !== '' && value !== null && value !== undefined
+    // )
 
-    router.push({
-      pathname: '/all-ads',
-      query: filteredData,
-    })
+    // router.push({
+    //   pathname: '/all-ads',
+    //   query: filteredData,
+    // })
   }
 
   return (
@@ -96,11 +96,11 @@ const Search = () => {
               {...register('location')}
             >
               <option value="">Search Location</option>
-              {_.map(topLocationData, (item, index) => (
+              {/* {_.map(topLocationData, (item, index) => (
                 <option key={index} value={item.location}>
                   {item.location}
                 </option>
-              ))}
+              ))} */}
             </select>
             <svg
               className="h-4 w-4 absolute top-1/2 left-4 transform -translate-y-1/2"

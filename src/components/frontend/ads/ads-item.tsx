@@ -1,9 +1,10 @@
 import React from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { FiHeart } from "react-icons/fi";
 import { RiHeartFill } from "react-icons/ri";
 import { MdOutlineLocationOn } from "react-icons/md";
-import Image from "../../../lib/optimize/image";
+// import Image from "../../../optimize/image";
 // import useUser from "../../../lib/user";
 import { authAxios } from "../../../utils/axiosKits";
 import useSWR, { useSWRConfig } from "swr";
@@ -101,7 +102,6 @@ const AdsItem = ({ item }: any) => {
                 height={300}
                 className="mb-5 w-full group-hover:scale-110 transition duration-300 ease-in-out"
                 layout="responsive"
-                noPlaceholder={null}
               />
             ) : (
               <Image
@@ -110,8 +110,7 @@ const AdsItem = ({ item }: any) => {
                 width={400}
                 height={300}
                 className="mb-5 w-full group-hover:scale-110 transition duration-300 ease-in-out"
-                layout="responsive"
-                noPlaceholder={null}
+                // layout="responsive"
               />
             )}
 

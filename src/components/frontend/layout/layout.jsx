@@ -1,7 +1,7 @@
 import React from "react";
 import Footer from "../footer/Footer";
-import MainNavBar from "../header/MainNavBar";
 import TopNav from "../header/TopNav";
+import MainNavBar from "../header/MainNavBar"
 
 
 const Layout = ({ children }) => {
@@ -10,7 +10,7 @@ const Layout = ({ children }) => {
       <TopNav />
       <MainNavBar />
       <main className="pt-32">{children}</main>
-      <Footer />
+      {/* <Footer /> */}
     </>
   );
 };

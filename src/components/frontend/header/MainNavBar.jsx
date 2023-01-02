@@ -11,8 +11,8 @@ import { RiQuestionLine } from 'react-icons/ri'
 import { ThemeContext } from '../../../context/ThemeContext'
 import useUser from '../../../lib/user'
 import Image from '../../../optimize/image'
-import Notification from '../../dashboard/super-admin/superadmin-navbar/notification'
-import UserAddPost from '../../dashboard/super-admin/superadmin-navbar/user-addPost'
+// import Notification from '../../dashboard/super-admin/superadmin-navbar/notification'
+// import UserAddPost from '../../dashboard/super-admin/superadmin-navbar/user-addPost'
 
 const menuList = [
   {
@@ -217,7 +217,7 @@ const MainNavBar = () => {
           <div className="flex items-center justify-between relative">
             <div className="flex items-start sm:items-center">
               <div className="lg:w-auto lg:pr-0 xl:w-72">
-                <Link href="/">
+                <Link href="/" legacyBehavior>
                   <a>
                     <p className="text-themeBlackLight font-bold text-2xl">
                       Meta <span className="text-themePrimary">Ads</span>
@@ -232,7 +232,7 @@ const MainNavBar = () => {
                   <ul className="flex items-center gap-4">
                     {menuList.map((item, index) => (
                       <li key={index}>
-                        <Link href={item.link}>
+                        <Link href={item.link} legacyBehavior>
                           <a
                             className={`text-base transition duration-300 ease-in-out hover:text-themePrimary relative before:absolute before:content-[''] before:w-0 before:h-[2px] before:bg-themeSecondary before:-bottom-2 before:left-1/2 before:transform before:-translate-x-1/2 before:transition-all before:duration-300 before:ease-in-out hover:before:w-1/2 ${
                               router.asPath === item.link
@@ -254,14 +254,14 @@ const MainNavBar = () => {
             <div className="flex items-center gap-3 xl:gap-5 absolute right-0">
               {loggedIn && userData && (
                 <>
-                  <Notification />
+                  {/* <Notification /> */}
                 </>
               )}
 
               {loggedIn && userData ? (
                 isBuyer ? (
                   <div className="hidden sm:block">
-                    <Link href="/dashboard/favourite-ads">
+                    <Link href="/dashboard/favourite-ads" legacyBehavior>
                       <a>
                         <button className="text-base md:font-semibold text-white bg-themeSecondary py-2 px-4 md:py-3 md:px-7 rounded">
                           Favourite Ads
@@ -271,7 +271,7 @@ const MainNavBar = () => {
                   </div>
                 ) : (
                   <div className="hidden sm:block">
-                    <Link href="/dashboard/ads/new-ads">
+                    <Link href="/dashboard/ads/new-ads" legacyBehavior>
                       <a>
                         <button className="text-base md:font-semibold text-white bg-themeSecondary py-2 px-4 md:py-3 md:px-7 rounded">
                           Post Your Ad
@@ -294,7 +294,7 @@ const MainNavBar = () => {
               {/* user image button  */}
               {loggedIn && userData && (
                 <>
-                  <UserAddPost />
+                  {/* <UserAddPost /> */}
                 </>
               )}
 
@@ -336,7 +336,7 @@ const MainNavBar = () => {
                 <ul className="space-y-5 px-7 pt-10">
                   {menuList.map((item, index) => (
                     <li key={index} onClick={() => close(!open)}>
-                      <Link href={item.link} passHref={false}>
+                      <Link href={item.link} passHref={false} legacyBehavior>
                         <a className="flex gap-5 items-center">
                           {item.icon}
                           <p className="text-base text-white font-semibold">
@@ -353,7 +353,7 @@ const MainNavBar = () => {
                     <>
                       {loginMenu.map((item, index) => (
                         <li className="md:hidden" key={index}>
-                          <Link href={item.link}>
+                          <Link href={item.link} legacyBehavior>
                             <a className="flex gap-5 items-center">
                               {item.icon}
                               <p className="text-base text-white font-semibold">
@@ -368,7 +368,7 @@ const MainNavBar = () => {
 
                   {/* Help & Support */}
                   <li>
-                    <Link href="#">
+                    <Link href="#" legacyBehavior>
                       <a className="flex gap-5 items-center">
                         <RiQuestionLine className="text-xl text-white" />
                         <p className="text-base text-white font-semibold">
@@ -409,7 +409,7 @@ const MainNavBar = () => {
 
                   {/* Post Your Ad */}
                   <div className="pt-4 sm:hidden">
-                    <Link href="/dashboard/ads/new-ads">
+                    <Link href="/dashboard/ads/new-ads" legacyBehavior>
                       <a>
                         <button className="text-base md:font-semibold text-white bg-themeSecondary py-2 px-4 md:py-3 md:px-7 rounded w-full">
                           Post Your Ad
@@ -432,7 +432,7 @@ const MainNavBar = () => {
                           className="rounded-lg"
                         />
                         <div>
-                          <Link href="/dashboard">
+                          <Link href="/dashboard" legacyBehavior>
                             <a className="text-base font-semibold text-white whitespace-nowrap">
                               {userData?.fullName?.firstName}
                             </a>
@@ -443,7 +443,7 @@ const MainNavBar = () => {
                         </div>
                       </div>
                       <button>
-                        <Link href="/dashboard">
+                        <Link href="/dashboard" legacyBehavior>
                           <a>
                             <svg
                               width="20"

@@ -10,7 +10,9 @@ import Pagination from '../src/components/frontend/pagination'
 import Search from '../src/components/frontend/search'
 import { Axios } from '../src/utils/axiosKits'
 import { MdOutlineLocationOn } from 'react-icons/md'
-import _ from 'lodash'
+
+// import _ from 'lodash'
+// import * as _ from "lodash";
 
 const fetcher = (url: any) => Axios(url).then((res) => res.data.data)
 const adsAPI = '/user/search/ads'
@@ -96,7 +98,7 @@ const SearchPage = () => {
               {/* Loading skeleton */}
               {!totalAdsData && !adsError && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-7 mt-12">
-                  {_.map(data, (item, index) => (
+                  {data.map((item) => (
                     <div className="shadow bg-white p-5 rounded-2xl hover:shadow-card transition ease-in-out duration-300">
                       <div className="relative">
                         <Skeleton height={190} />
