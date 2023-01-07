@@ -35,6 +35,7 @@ const SearchPage = () => {
       ? adsAPI
       : adsAPI +
       router.asPath.replace(router.pathname, '')
+  //FIXME reactivate this
   // const API =
   //   router.pathname == router.asPath
   //     ? adsAPI + `?page=${currentPage}`
@@ -42,8 +43,6 @@ const SearchPage = () => {
   //       router.asPath.replace(router.pathname, '') +
   //       `&page=${currentPage}`
   const { data: totalAdsData, error: adsError } = useSWR(API, fetcher)
-  console.log("totalAdsData")
-  console.log(totalAdsData)
   const ads = totalAdsData?.ads
   const totalAdsCount = totalAdsData?.totalAdsCount
   const data = [

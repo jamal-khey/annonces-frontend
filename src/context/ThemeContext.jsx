@@ -8,7 +8,7 @@ import { localRemove } from "../utils/localStorage";
 
 export const ThemeContext = createContext();
 
-const fetcher = (url) => Axios(url).then((res) => res.data.data);
+const fetcher = (url) => Axios(url).then((res) => res.data.data );
 const authFetcher = (url) => authAxios(url).then((res) => res.data.data);
 
 const topLocationAPI = "/admin/topLocations";
@@ -32,13 +32,13 @@ const ThemeContextProvider = ({ children }) => {
     //     revalidateOnFocus: false,
     // });
 
-    // const {
-    //     data: adsCategoryData,
-    //     error: adsCategoryError,
-    //     mutate: adsCategoryMutate,
-    // } = useSWR(adsCategoryAPI, fetcher, {
-    //     revalidateOnFocus: false,
-    // });
+    const {
+        data: adsCategoryData,
+        error: adsCategoryError,
+        mutate: adsCategoryMutate,
+    } = useSWR(adsCategoryAPI, fetcher, {
+        revalidateOnFocus: false,
+    });
 
     // const {
     //     data: filtersData,
@@ -126,9 +126,9 @@ const ThemeContextProvider = ({ children }) => {
                 // topLocationData,
                 // topLocationError,
                 // topLocationMutate,
-                // adsCategoryData,
-                // adsCategoryError,
-                // adsCategoryMutate,
+                adsCategoryData,
+                adsCategoryError,
+                adsCategoryMutate,
                 // filtersData,
                 // filtersError,
                 // filtersMutate,
