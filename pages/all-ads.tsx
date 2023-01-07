@@ -1,20 +1,28 @@
 import Head from 'next/head'
 import React from 'react'
 import useSWR from 'swr'
-import { useRouter } from 'next/router'
-import Skeleton, { SkeletonTheme } from 'react-loading-skeleton'
+import {useRouter} from 'next/router'
+import Skeleton, {SkeletonTheme} from 'react-loading-skeleton'
 import AdsFilter from '../src/components/frontend/ads-filter'
 import AdsItem from '../src/components/frontend/ads/ads-item'
 import Layout from '../src/components/frontend/layout/layout'
 import Pagination from '../src/components/frontend/pagination'
 import Search from '../src/components/frontend/search'
-import { Axios } from '../src/utils/axiosKits'
-import { MdOutlineLocationOn } from 'react-icons/md'
+import {Axios} from '../src/utils/axiosKits'
+import {MdOutlineLocationOn} from 'react-icons/md'
+import {Ad} from "../model/ads";
 
 // import _ from 'lodash'
 // import * as _ from "lodash";
 
-const fetcher = (url: any) => Axios(url).then((res) => res.data.data)
+const fetcher = (url: any) => Axios(url).then((res) => {
+  console.log(res)
+  const allAds: [Ad] = res.data.data;
+  return {
+    ads: allAds,
+    totalAdsCount: res.data.data.length
+  }
+})
 const adsAPI = '/user/search/ads'
 
 const SearchPage = () => {
@@ -24,11 +32,18 @@ const SearchPage = () => {
   const router = useRouter()
   const API =
     router.pathname == router.asPath
-      ? adsAPI + `?page=${currentPage}`
+      ? adsAPI
       : adsAPI +
-        router.asPath.replace(router.pathname, '') +
-        `&page=${currentPage}`
+      router.asPath.replace(router.pathname, '')
+  // const API =
+  //   router.pathname == router.asPath
+  //     ? adsAPI + `?page=${currentPage}`
+  //     : adsAPI +
+  //       router.asPath.replace(router.pathname, '') +
+  //       `&page=${currentPage}`
   const { data: totalAdsData, error: adsError } = useSWR(API, fetcher)
+  console.log("totalAdsData")
+  console.log(totalAdsData)
   const ads = totalAdsData?.ads
   const totalAdsCount = totalAdsData?.totalAdsCount
   const data = [
@@ -99,7 +114,7 @@ const SearchPage = () => {
               {!totalAdsData && !adsError && (
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4  gap-7 mt-12">
                   {data.map((item) => (
-                    <div className="shadow bg-white p-5 rounded-2xl hover:shadow-card transition ease-in-out duration-300">
+                    <div key={item} className="shadow bg-white p-5 rounded-2xl hover:shadow-card transition ease-in-out duration-300">
                       <div className="relative">
                         <Skeleton height={190} />
                         <div className="absolute top-3 right-3 text-white text-sm rounded z-20">
